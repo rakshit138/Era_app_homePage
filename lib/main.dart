@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:video_player/video_player.dart';
 
 void main() => runApp(MyApp());
 
@@ -178,6 +179,7 @@ class MyApp extends StatelessWidget {
               child: Column(
                 children: [
                   HeaderImg(),
+                  VideoExample(),
                   Intro(),
                   Features(),
                   Padding(
@@ -302,6 +304,77 @@ class HeaderImg extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: Image(image: AssetImage('images/header.jpeg')),
     );
+  }
+}
+
+class VideoExample extends StatefulWidget {
+  @override
+  VideoState createState() => VideoState();
+}
+
+class VideoState extends State<VideoExample> {
+  VideoPlayerController playerController;
+  VoidCallback listener;
+
+  @override
+  void initState() {
+    super.initState();
+    listener = () {
+      setState(() {});
+    };
+  }
+
+  void createVideo() {
+    if (playerController == null) {
+      playerController = VideoPlayerController.asset("videos/Intro.mp4")
+        ..addListener(listener)
+        ..setVolume(1.0)
+        ..setLooping(true)
+        ..initialize()
+        ..play();
+    } else {
+      if (playerController.value.isPlaying) {
+        playerController.pause();
+      } else {
+        // playerController.initialize();
+        playerController.play();
+      }
+    }
+  }
+
+  @override
+  void deactivate() {
+    playerController.setVolume(0.0);
+    playerController.removeListener(listener);
+    super.deactivate();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: [
+      Container(
+        child: AspectRatio(
+            aspectRatio: 16 / 9,
+            child: Container(
+              child: (playerController != null
+                  ? VideoPlayer(
+                      playerController,
+                    )
+                  : Container(
+                      decoration: new BoxDecoration(
+                        color: Colors.black,
+                      ),
+                    )),
+            )),
+      ),
+      IconButton(
+        icon: Icon(Icons.play_arrow),
+        onPressed: () {
+          createVideo();
+          playerController.play();
+        },
+      )
+    ]);
   }
 }
 
