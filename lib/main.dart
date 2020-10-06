@@ -26,7 +26,10 @@ class MyApp extends StatelessWidget {
                 ListTile(
                   contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, -10.0),
                   title: Text('ERA\nAssistant to Redefine Education',
-                      style: TextStyle(color: Colors.red, fontSize: 22)),
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 22,
+                          fontFamily: 'Merriweather')),
                 ),
                 Divider(
                   color: Colors.grey[200],
