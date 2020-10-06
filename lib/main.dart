@@ -139,6 +139,17 @@ class MyApp extends StatelessWidget {
                   dense: true,
                 ),
                 ListTile(
+                  leading: Icon(Icons.video_library),
+                  title: Text(
+                    'Video Library',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  dense: true,
+                ),
+                ListTile(
                   leading: Icon(Icons.school),
                   title: Text(
                     'Start Scholarship Test',
