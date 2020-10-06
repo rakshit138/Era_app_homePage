@@ -1,6 +1,7 @@
 # era_app
 
-A new Flutter project.
+ERA Home Page.
+MinSDKVersion 21
 
 ## Getting Started
 
