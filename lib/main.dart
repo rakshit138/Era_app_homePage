@@ -16,27 +16,50 @@ class MyApp extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.grey[100],
           appBar: AppBar(
-            backgroundColor: Colors.red[200],
-            title: Text('ERA '),
+            backgroundColor: Color(0xff03258C),
+            title: Text(
+              'ERA',
+              style: TextStyle(
+                fontFamily: 'Merriweather',
+              ),
+            ),
           ),
           drawer: Drawer(
             child: ListView(
-              padding: EdgeInsets.fromLTRB(0.0, 5.0, 5.0, 0.0),
+              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
               children: <Widget>[
-                ListTile(
-                  contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, -10.0),
-                  title: Text('ERA\nAssistant to Redefine Education',
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 22,
-                          fontFamily: 'Merriweather')),
-                ),
-                Divider(
-                  color: Colors.grey[200],
-                  height: 10,
-                  thickness: 2,
-                  indent: 20,
-                  endIndent: 20,
+                DrawerHeader(
+                  child: Column(
+                    children: <Widget>[
+                      Image(
+                        image: AssetImage('images/logo png 3.png'),
+                        height: 50,
+                        width: 50,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Text('ERA',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontFamily: 'Merriweather')),
+                      ),
+                      Text('Assistant to Redefine Education',
+                          style: TextStyle(
+                              color: Colors.white, // Color(0xff03258C),
+                              fontSize: 20,
+                              fontFamily: 'Dancing Script')),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.blueGrey,
+                      image: DecorationImage(
+                          colorFilter: new ColorFilter.mode(
+                            Colors.grey.withOpacity(0.2),
+                            BlendMode.dstATop,
+                          ),
+                          image: AssetImage('images/headerBackground.jpg'),
+                          fit: BoxFit.cover)),
                 ),
                 Container(
                   child: ListTile(
@@ -2405,7 +2428,7 @@ class Footer extends StatelessWidget {
     return Container(
       width: (MediaQuery.of(context).size.width),
       height: 500,
-      decoration: new BoxDecoration(color: Colors.grey[800]),
+      decoration: new BoxDecoration(color: Color(0xff03258C)),
       child: Column(
         children: [
           Padding(
@@ -2440,7 +2463,7 @@ class Footer extends StatelessWidget {
                     icon: FaIcon(
                       FontAwesomeIcons.facebook,
                       size: 40,
-                      color: Colors.black,
+                      color: Colors.blueGrey,
                     ),
                     onPressed: null),
               ),
@@ -2449,7 +2472,7 @@ class Footer extends StatelessWidget {
                     icon: FaIcon(
                       FontAwesomeIcons.instagram,
                       size: 40,
-                      color: Colors.black,
+                      color: Colors.blueGrey,
                     ),
                     onPressed: null),
               ),
@@ -2458,7 +2481,7 @@ class Footer extends StatelessWidget {
                     icon: FaIcon(
                       FontAwesomeIcons.linkedin,
                       size: 40,
-                      color: Colors.black,
+                      color: Colors.blueGrey,
                     ),
                     onPressed: null),
               ),
@@ -2467,7 +2490,7 @@ class Footer extends StatelessWidget {
                     icon: FaIcon(
                       FontAwesomeIcons.twitter,
                       size: 40,
-                      color: Colors.black,
+                      color: Colors.blueGrey,
                     ),
                     onPressed: null),
               ),
